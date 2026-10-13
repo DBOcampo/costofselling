@@ -40,15 +40,68 @@ thead th{height:auto}th,td{padding:2px 5px!important;font-size:9px!important;lin
 @media screen and (min-width:761px){.table-wrap{max-height:none;overflow-y:visible}}
 @media screen and (min-width:761px){#fit{display:none}}
 @media print{.expense-button,.edit-icon,.price-field{display:none!important}.expense-cell{height:auto}.print-price{margin:0;font-size:10px;color:var(--ink);font-weight:750}.expense-rate{font-size:9px}}
+@media print{
+@page{size:letter landscape;margin:0.28in}
+html,body{width:100%;margin:0;background:#fff;color:#171717;font-family:Arial,Helvetica,sans-serif;font-size:10pt;line-height:1.25}
+body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+header{border:0}
+.top{max-width:none;justify-content:center;padding:0;margin:0}
+.brand{width:100%;text-align:center}
+.brand-logo{width:2.5in;max-width:100%;height:auto;margin:0 auto}
+.actions, .pill, .worksheet-tools, .table-help, .bottom, #toast, dialog, .scenario-head button, .info, .legend, .estimate-actions{display:none!important}
+main{max-width:none;margin:0;padding:0}
+.titlebar{display:block;text-align:center;margin:0 0 0.08in}
+.titlebar>div{width:100%}
+h1{margin:0;font-size:17pt;line-height:1.1;letter-spacing:0;font-weight:800;text-transform:uppercase}
+.screen-intro{display:none!important}
+.print-qualification{display:block;margin:2px 0 4px;font-size:10pt;font-style:italic;color:#272727}
+.sheet{overflow:visible;border:0;border-radius:0;box-shadow:none}
+.meta,.shared-input{display:none!important}
+.print-meta{display:flex;justify-content:center;align-items:center;gap:0;padding:2px 0 4px;font-size:9pt;white-space:normal;overflow-wrap:anywhere;text-align:center}
+.print-meta span{padding:0 0.12in}
+.print-meta span+span{border-left:1px solid #17613f}
+.table-wrap{width:100%;max-height:none!important;overflow:visible!important;border-top:0}
+.table-stage,.table-wrap.fit .table-stage{width:100%!important;height:auto!important;overflow:visible!important}
+#estimate{width:100%!important;position:static!important;transform:none!important;table-layout:fixed;border-collapse:collapse;border-spacing:0;border:1.6pt solid #171717;font-size:9.5pt}
+#cols col:first-child{width:47%!important}
+#cols col:not(:first-child){width:auto!important}
+#estimate th,#estimate td{position:static!important;height:auto;padding:4px 6px!important;border:0.65pt solid #444;text-align:center;vertical-align:middle;font-size:10pt!important;line-height:1.15}
+#estimate thead th{height:0.28in;padding:4px 6px!important;background:#edf0f2;color:#171717;font-size:10pt!important;font-weight:750}
+#estimate thead th:first-child,#estimate .row-label{text-align:left}
+#estimate thead th:first-child{padding-left:10px!important}
+#estimate .row-label{padding-left:10px!important;font-size:10pt!important;font-weight:400}
+#estimate tbody tr:not(.price):not(.total):not(.netrow) td{padding-top:1px!important;padding-bottom:1px!important}
+#estimate tbody tr:not(.price):not(.total):not(.netrow) .result{font-size:10pt!important;line-height:1.15}
+#estimate .label-wrap{display:block}
+#estimate .label-text{overflow-wrap:normal}
+#estimate .expense-rate{font-size:9pt;color:#333}
+#estimate .price th,#estimate .price td{background:#d4f0cd}
+#estimate .price .row-label{font-size:12pt!important;font-weight:750}
+#estimate .price .amount-field{display:none!important}
+#estimate .price .print-price{display:block!important;margin:0;color:#171717;font-size:12pt;font-weight:750;line-height:1.1}
+#estimate .mortgage th,#estimate .mortgage td{background:#fbe5e4}
+#estimate .negotiable th,#estimate .negotiable td{background:#e9eaec}
+#estimate .total th,#estimate .total td{background:#fff;font-size:10pt!important;font-weight:750}
+#estimate .total th{text-align:left}
+#estimate .netrow th,#estimate .netrow td{background:#c9edc1;color:#142a18;border-top:1pt solid #333;border-bottom:1.6pt solid #171717;font-weight:800;white-space:nowrap}
+#estimate .netrow th{text-align:left;font-size:12pt!important;padding-left:10px!important}
+#estimate .netrow td{font-size:15pt!important}
+.notes{padding:7px 3px 0;border-top:0}
+.notes details:not([open])>:not(summary){display:block!important}
+.notes summary{display:none!important}
+.seller-notes p{max-width:none;margin:2px 0;font-size:8.5pt;line-height:1.15;color:#252525}
+tr,.notes{break-inside:avoid;page-break-inside:avoid}
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
 </style></head><body>
 <header><div class="top"><div class="brand"><img class="brand-logo" src="assets/evelologo.png?v=22063e019c2c" alt="Evelo Team — Keller Williams" width="2500" height="1620"></div><nav class="actions" aria-label="Estimate actions"><button id="new">New</button><button id="open">Open saved</button><button id="settings">Defaults</button></nav></div></header>
 <main><div class="titlebar"><div><h1>Estimated Cost of Selling</h1><p class="muted screen-intro">Compare sale prices. See what you could take home.</p><p class="print-qualification">Initial Suggested Price Range Based on Current Comparable Research Only</p></div><span class="pill">Interactive prototype</span></div>
-<section class="sheet" aria-label="Seller estimate"><div class="meta"><label>PROPERTY ADDRESS<input id="address" placeholder="Enter property address" value="Example property · Fishers, IN"></label><label>PREPARED BY<input id="agent" placeholder="Agent name" value="Evelo Team"></label><label>ESTIMATE DATE<input id="date" type="date"></label></div>
+<section class="sheet" aria-label="Seller estimate"><div class="meta"><label>PROPERTY ADDRESS<input id="address" placeholder="Enter property address"></label><label>PREPARED BY<input id="agent" placeholder="Agent name" value="Evelo Team"></label><label>ESTIMATE DATE<input id="date" type="date"></label></div>
 <div class="print-meta" id="print-meta"></div><div class="legend"><div class="keys"><span class="key debt">Mortgage payoff</span><span class="key">Negotiable items</span><span class="key net">Seller net</span></div><div class="worksheet-tools"><button id="fit" aria-pressed="false">Fit whole sheet</button><button id="add">+ Scenario</button></div></div>
 <div class="table-help"><span>Tap an expense name to edit</span><span id="scroll-hint">Swipe across to compare →</span></div>
 <div class="table-frame" id="table-frame"><div class="table-wrap" id="table-wrap" tabindex="0" role="region" aria-label="Sale price comparison, scroll horizontally for more scenarios"><div class="table-stage" id="table-stage"><table id="estimate"><colgroup id="cols"></colgroup><thead id="thead"></thead><tbody id="tbody"></tbody></table></div></div></div>
 <div id="scroll-controls" class="scroll-controls" hidden><button id="scroll-left" type="button" aria-label="Show earlier scenarios" aria-controls="table-wrap">←</button><span><b id="scenario-count">3 scenarios</b><span id="scroll-direction">Swipe or use the arrows to compare</span></span><button id="scroll-right" type="button" aria-label="Show later scenarios" aria-controls="table-wrap">→</button></div>
-<section class="estimate-actions" aria-label="Save or print estimate"><button id="save" class="primary">Save</button><button id="print">Print / PDF</button></section>
+<section class="estimate-actions" aria-label="Save or print estimate"><button id="save">Save</button><button id="print" class="primary">Print / PDF</button></section>
 <div class="notes"><details><summary>What these numbers include</summary><div class="seller-notes"><p><b>Mortgage payoff:</b> A mortgage payoff is different from the mortgage balance. The payoff estimate is based on information supplied by the seller. Verify the correct amount with your mortgage company.</p><p><b>Estimated taxes:</b> Use tax information reported on the county website. This estimate includes <span id="note-tax-months">21</span> months of taxes, entered as a dollar total. If you escrow for taxes, the original sheet notes that your remaining escrow balance is refunded by your mortgage company approximately four weeks after closing. Confirm the amount and timing with your lender; that refund is not added to the seller net here.</p><p><b>Items shaded gray:</b> Negotiable items on the purchase agreement. These vary by offer and negotiations. Commission amounts depend on the applicable signed agreements.</p><p><b>Estimate only:</b> These figures are approximate and based on the information provided. They are not final calculations. Actual proceeds depend on the final contract, lender payoff statements and settlement figures. We make no guarantees and are not responsible for differences from these estimates on your final closing statement.</p></div></details></div></section>
 <div class="bottom"><p class="sample-note">Illustrative amounts. Verify costs and agreements for each estimate.</p><p id="save-status" role="status">Not saved · this device only</p></div></main>
 <dialog id="defaults-dialog"><div class="dialog-head"><h2>Default amounts</h2><button data-close="defaults-dialog" aria-label="Close defaults">✕</button></div><p class="muted">Your starting fees for new estimates on this device. Confirm them against the applicable agreements. Current and saved estimates keep their own amounts.</p><div class="reference-presets"><p>Optional reference values · not approved team defaults</p><button type="button" data-preset="pdf">Use PDF values</button><button type="button" data-preset="screenshot">Use screenshot values</button><p id="preset-status" role="status">Review the amounts below before saving.</p></div><form id="defaults-form"><div class="fields" id="default-fields"></div><button class="primary" type="submit">Save defaults</button></form></dialog>
@@ -57,19 +110,22 @@ thead th{height:auto}th,td{padding:2px 5px!important;font-size:9px!important;lin
 <script>
 'use strict';
 const $=id=>document.getElementById(id);const money=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',currencySign:'accounting',maximumFractionDigits:0}).format(n);const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const rows=[["first", "1st Mortgage PAYOFF", "mortgage", "$", "Estimated lender payoff"], ["second", "2nd Mortgage PAYOFF", "mortgage", "$", "Estimated second mortgage payoff"], ["listing", "Evelo Team’s Listing Broker’s Fees", "selling", "%", "Based on asking price"], ["tax", "Estimated Taxes", "selling", "$", "Enter the estimated tax total for the selected period"], ["buyer", "Buyer’s Agent Commission", "negotiable", "%", "Per agreement"], ["title", "Title Insurance", "negotiable", "$", "Enter title company estimate"], ["credit", "Buyers Closing Costs, Prepaids, Discount Points, etc.", "negotiable", "$", "As agreed in the offer"], ["warranty", "Home Warranty", "negotiable", "$", "If included"], ["closing", "Closing Fee", "negotiable", "$", "Settlement service"], ["repairs", "Any Repairs or Inspection Items", "negotiable", "$", "As agreed"], ["admin", "Evelo Team Administration Fee", "selling", "$", ""], ["service", "Service Fees (Title Service Fee, Recording Fee, CPL, Transfer Fee, etc)", "selling", "$", ""]];
-const initial={first:250000,second:0,listing:2.75,buyer:2.5,tax:3000,title:1200,closing:300,admin:299,service:850,credit:0,warranty:0,repairs:1000};const defaultKeys=['listing','buyer','closing','admin','service'];
+const rows=[["first", "1st Mortgage PAYOFF", "mortgage", "$", "Estimated lender payoff"], ["second", "2nd Mortgage PAYOFF", "mortgage", "$", "Estimated second mortgage payoff"], ["listing", "Evelo Team’s Listing Broker’s Fees", "selling", "%", "Based on asking price"], ["tax", "Estimated Taxes", "selling", "$", "Enter the estimated tax total for the selected period"], ["admin", "Evelo Team Administration Fee", "selling", "$", ""], ["service", "Service Fees (Title Service Fee, Recording Fee, CPL, Transfer Fee, etc)", "selling", "$", ""], ["buyer", "Buyer’s Agent Commission", "negotiable", "%", "Per agreement"], ["title", "Title Insurance", "negotiable", "$", "Auto-filled from list price (Barrister Title)"], ["credit", "Buyers Closing Costs, Prepaids, Discount Points, etc.", "negotiable", "$", "As agreed in the offer"], ["warranty", "Home Warranty", "negotiable", "$", "If included"], ["closing", "Closing Fee", "negotiable", "$", "Settlement service"], ["repairs", "Any Repairs or Inspection Items", "negotiable", "$", "As agreed"]];
+// Barrister Title owner's policy rate: price rounds up to the next $5,000; above $1M it is $2 per $1,000. Sampled from Barrister's own calculator 2026-10-13.
+const titleRates=[237.6,237.6,237.6,237.6,237.6,237.6,237.6,237.6,237.6,237.6,237.6,256.3,275,293.7,313.5,332.2,350.9,369.6,389.4,408.1,426.8,443.3,458.7,474.1,490.6,506,521.4,537.9,553.3,569.8,585.2,597.3,610.5,622.6,635.8,649,661.1,673.2,686.4,698.5,711.7,723.8,737,749.1,762.3,774.4,787.6,799.7,812.9,825,838.2,850.3,863.5,875.6,888.8,900.9,914.1,926.2,939.4,951.5,964.7,976.8,990,1002.1,1015.3,1027.4,1040.6,1052.7,1065.9,1078,1091.2,1103.3,1116.5,1128.6,1141.8,1153.9,1167.1,1179.2,1192.4,1204.5,1217.7,1229.8,1243,1255.1,1268.3,1280.4,1293.6,1305.7,1318.9,1331,1344.2,1356.3,1369.5,1381.6,1394.8,1406.9,1420.1,1432.2,1444.3,1457.5,1470.7,1482.8,1496,1508.1,1521.3,1533.4,1546.6,1558.7,1571.9,1584,1597.2,1609.3,1622.5,1634.6,1647.8,1659.9,1673.1,1685.2,1698.4,1710.5,1723.7,1735.8,1749,1761.1,1774.3,1786.4,1799.6,1811.7,1824.9,1837,1850.2,1862.3,1875.5,1887.6,1900.8,1912.9,1926.1,1938.2,1951.4,1963.5,1976.7,1988.8,2002,2014.1,2027.3,2039.4,2052.6,2063.6,2077.9,2090,2103.2,2115.3,2128.5,2140.6,2153.8,2165.9,2179.1,2191.2,2204.4,2215.4,2229.7,2241.8,2255,2267.1,2280.3,2292.4,2305.6,2317.7,2330.9,2343,2356.2,2368.3,2381.5,2393.6,2406.8,2418.9,2432.1,2444.2,2457.4,2469.5,2482.7,2494.8,2508,2520.1,2533.3,2545.4,2558.6,2570.7,2583.9,2596,2609.2,2621.3,2634.5,2646.6,2659.8,2671.9,2685.1,2697.2,2710.4,2722.5,2735.7];const titleRate=p=>p<=0?0:p>1e6?Math.round((2735.7+0.002*(p-1e6))*100)/100:titleRates[Math.max(0,Math.ceil(p/5000))];
+const initial={first:250000,second:0,listing:3,buyer:3,tax:3000,title:null,closing:300,admin:199,service:850,credit:0,warranty:0,repairs:1000};const defaultKeys=['listing','buyer','closing','admin','service'];
 const feeReferences={pdf:{listing:3,buyer:3,closing:300,admin:199,service:850},screenshot:{listing:2.75,buyer:3,closing:300,admin:299,service:850}};
 function rowLabel(key,label){return key==='tax'?`Estimated ${state.taxMonths} Months of Taxes`:label}
 function validMonths(value){return Number.isInteger(value)&&value>0}
 function migrateEstimate(saved){return {...saved,taxMonths:saved.taxMonths??21}}
 function read(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback}catch{return fallback}}
-let defaults=read('evelo-demo-defaults',{});let state={id:null,address:'Example property · Fishers, IN',agent:'Evelo Team',date:new Date().toLocaleDateString('en-CA'),prices:[425000,450000,475000],taxMonths:21,values:{...initial,...defaults}};let dirty=false,fit=false;
-$('date').value=state.date;
-function costs(price){return rows.reduce((sum,[key,,group,unit])=>sum+(unit==='%'?price*state.values[key]/100:state.values[key]),0)}
+let defaults=read('evelo-demo-defaults',{});const blank=()=>({id:null,address:'',agent:'Evelo Team',date:new Date().toLocaleDateString('en-CA'),prices:[0,0,0],taxMonths:12,values:Object.fromEntries(rows.map(([key])=>[key,key==='title'?null:defaultKeys.includes(key)?(defaults[key]??initial[key]):0]))});
+let state=blank();let dirty=false,fit=false;
+syncMeta();
+function costs(price){return rows.reduce((sum,[key])=>sum+valueFor(key,price),0)}
 function mark(){dirty=true;$('save-status').textContent='Unsaved changes · this device only'}
-function valueFor(key,price){const row=rows.find(r=>r[0]===key);return row[3]==='%'?price*state.values[key]/100:state.values[key]}
-const explanations={first:'Estimated amount needed to pay off the first mortgage. It applies to every price scenario. Obtain a current lender payoff figure before finalizing.',second:'Estimated payoff of the second mortgage. This amount applies to every scenario. Verify the payoff with the lender.',listing:'Listing broker compensation entered as a percentage of each scenario’s sale price. Use the signed agreement; compensation is negotiable.',buyer:'Buyer broker compensation entered as a percentage of the sale price. Use the applicable agreement; compensation is negotiable.',tax:'Enter the tax period and the estimated dollar total for that period. Changing the months does not recalculate the total. Verify county tax information and confirm the amount for settlement.',title:'Estimated title insurance charge. Confirm the amount with the title company.',closing:'Estimated fee for handling settlement. Confirm with the settlement provider.',admin:'Evelo Team Administration Fee. The amount shown in this prototype is illustrative and requires team confirmation.',service:'Estimated service fees, including title service, recording, CPL and transfer fees. Confirm the breakdown with the settlement provider to avoid counting the same fee twice.',credit:'Seller contribution toward buyer closing costs, prepaids or discount points. Enter the amount agreed in the offer.',warranty:'Estimated seller-paid home warranty, if included in the agreement.',repairs:'Estimated seller-paid repairs or inspection allowance. Adjust to match the agreement.'};
+function valueFor(key,price){if(key==='title'&&state.values.title==null)return titleRate(price);const row=rows.find(r=>r[0]===key);return row[3]==='%'?price*state.values[key]/100:state.values[key]}
+const explanations={first:'Estimated amount needed to pay off the first mortgage. It applies to every price scenario. Obtain a current lender payoff figure before finalizing.',second:'Estimated payoff of the second mortgage. This amount applies to every scenario. Verify the payoff with the lender.',listing:'Listing broker compensation entered as a percentage of each scenario’s sale price. Use the signed agreement; compensation is negotiable.',buyer:'Buyer broker compensation entered as a percentage of the sale price. Use the applicable agreement; compensation is negotiable.',tax:'Enter the tax period and the estimated dollar total for that period. Changing the months does not recalculate the total. Verify county tax information and confirm the amount for settlement.',title:'Filled in automatically from each scenario’s sale price, using Barrister Title’s owner’s policy rates. Enter an amount to override it for every scenario, or clear the field to return to auto.',closing:'Estimated fee for handling settlement. Confirm with the settlement provider.',admin:'Evelo Team Administration Fee. The amount shown in this prototype is illustrative and requires team confirmation.',service:'Estimated service fees, including title service, recording, CPL and transfer fees. Confirm the breakdown with the settlement provider to avoid counting the same fee twice.',credit:'Seller contribution toward buyer closing costs, prepaids or discount points. Enter the amount agreed in the offer.',warranty:'Estimated seller-paid home warranty, if included in the agreement.',repairs:'Estimated seller-paid repairs or inspection allowance. Adjust to match the agreement.'};
 function render(){
 $('add').disabled=state.prices.length>=5;
 $('cols').innerHTML='<col>'+state.prices.map(()=>'<col>').join('');
@@ -121,12 +177,12 @@ function openExpense(key,trigger){
 editingKey=key;editorTrigger=trigger;const row=rows.find(r=>r[0]===key);const percent=row[3]==='%';
 $('expense-title').textContent=rowLabel(key,row[1]);$('expense-help').textContent=explanations[key];
 $('expense-value-label').textContent=percent?'Rate (%)':key==='tax'?'Tax amount ($)':'Amount ($)';
-const input=$('expense-value');input.value=state.values[key];input.setCustomValidity('');if(percent)input.max='100';else input.removeAttribute('max');
+const input=$('expense-value');input.value=state.values[key]??'';input.required=key!=='title';input.placeholder=key==='title'?'Auto':'';input.setCustomValidity('');if(percent)input.max='100';else input.removeAttribute('max');
 $('expense-tax').hidden=key!=='tax';$('expense-months').disabled=key!=='tax';$('expense-months').value=state.taxMonths;
 $('expense-dialog').showModal();input.focus();input.select();
 }
 $('expense-form').onsubmit=e=>{
-e.preventDefault();const input=$('expense-value');const value=Number(input.value);if(!Number.isFinite(value)||!e.target.reportValidity())return;
+e.preventDefault();const input=$('expense-value');const auto=editingKey==='title'&&input.value.trim()==='';const value=auto?null:Number(input.value);if(!auto&&(!Number.isFinite(value)||!e.target.reportValidity()))return;
 state.values[editingKey]=value;if(editingKey==='tax')state.taxMonths=Number($('expense-months').value);
 mark();updateResults();layout();$('expense-dialog').close();
 };
@@ -135,17 +191,17 @@ $('estimate').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.d
 $('add').onclick=()=>{if(state.prices.length<5){state.prices.push(state.prices.at(-1)+25000);mark();render();if(!fit)$('table-wrap').scrollTo({left:$('table-wrap').scrollWidth,behavior:'smooth'})}};
 for(const id of ['address','agent','date'])$(id).oninput=()=>{state[id]=$(id).value;mark()};
 let timer;function toast(text){$('toast').textContent=text;$('toast').style.display='block';clearTimeout(timer);timer=setTimeout(()=>$('toast').style.display='none',3200)}
-function valid(){return [...document.querySelectorAll('#estimate input')].every(input=>input.value.trim()!==''&&input.checkValidity())&&validMonths(state.taxMonths)&&state.prices.every(v=>Number.isFinite(v)&&v>=0)&&rows.every(([key,,,unit])=>Number.isFinite(state.values[key])&&state.values[key]>=0&&(unit!=='%'||state.values[key]<=100))}
+function valid(){return [...document.querySelectorAll('#estimate input')].every(input=>input.value.trim()!==''&&input.checkValidity())&&validMonths(state.taxMonths)&&state.prices.every(v=>Number.isFinite(v)&&v>=0)&&rows.every(([key,,,unit])=>(key==='title'&&state.values[key]==null)||(Number.isFinite(state.values[key])&&state.values[key]>=0&&(unit!=='%'||state.values[key]<=100)))}
 $('save').onclick=()=>{if(!valid())return toast('Enter valid, nonnegative amounts before saving.');const saved=read('evelo-demo-estimates',{});state.id=state.id||String(Date.now());saved[state.id]={...state,updated:new Date().toISOString()};try{localStorage.setItem('evelo-demo-estimates',JSON.stringify(saved));dirty=false;$('save-status').textContent='Saved on this device · '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});toast('Estimate saved on this device.')}catch{toast('Saving is unavailable in this browser. You can still print your estimate.')}};
 $('open').onclick=()=>{const saved=read('evelo-demo-estimates',{});const items=Object.values(saved).sort((a,b)=>b.updated.localeCompare(a.updated));$('saved-list').innerHTML=items.length?items.map(x=>`<div class="saved-item"><div><b>${esc(x.address||'Untitled estimate')}</b><small>${esc(x.date)} · ${x.prices.length} scenarios</small></div><button data-load="${esc(x.id)}">Open</button></div>`).join(''):'<p style="padding:24px 0">No saved estimates yet. Use Save to keep this estimate.</p>';$('saved-dialog').showModal()};
 $('saved-list').onclick=e=>{const b=e.target.closest('[data-load]');if(!b)return;if(dirty&&!confirm('Discard unsaved changes and open this estimate?'))return;const saved=read('evelo-demo-estimates',{});state=migrateEstimate(structuredClone(saved[b.dataset.load]));dirty=false;syncMeta();render();$('save-status').textContent='Saved estimate · this device only';$('saved-dialog').close()};
 function syncMeta(){for(const id of ['address','agent','date'])$(id).value=state[id]}
-$('new').onclick=()=>{if(dirty&&!confirm('Discard unsaved changes and start a new estimate?'))return;state={id:null,address:'',agent:'Evelo Team',date:new Date().toLocaleDateString('en-CA'),prices:[0,0,0],taxMonths:12,values:Object.fromEntries(rows.map(([key])=>[key,defaultKeys.includes(key)?(defaults[key]??0):0]))};syncMeta();mark();render();$('address').focus()};
-$('settings').onclick=()=>{$('preset-status').textContent='Review the amounts below before saving.';$('default-fields').innerHTML=defaultKeys.map(key=>{const row=rows.find(r=>r[0]===key);return `<label>${row[1]} (${row[3]})<input name="${key}" type="number" required min="0" ${row[3]==='%'?'max="100"':''} step="0.01" value="${defaults[key]??0}"></label>`}).join('');$('defaults-dialog').showModal()};
+$('new').onclick=()=>{if(dirty&&!confirm('Discard unsaved changes and start a new estimate?'))return;state=blank();syncMeta();mark();render();$('address').focus()};
+$('settings').onclick=()=>{$('preset-status').textContent='Review the amounts below before saving.';$('default-fields').innerHTML=defaultKeys.map(key=>{const row=rows.find(r=>r[0]===key);return `<label>${row[1]} (${row[3]})<input name="${key}" type="number" required min="0" ${row[3]==='%'?'max="100"':''} step="0.01" value="${defaults[key]??initial[key]}"></label>`}).join('');$('defaults-dialog').showModal()};
 document.querySelectorAll('[data-preset]').forEach(button=>button.onclick=()=>{const reference=feeReferences[button.dataset.preset];for(const key of defaultKeys)$('defaults-form').elements.namedItem(key).value=reference[key];$('preset-status').textContent=(button.dataset.preset==='pdf'?'PDF':'Screenshot')+' reference loaded. Review, then Save defaults to use for new estimates.'});
 $('defaults-form').onsubmit=e=>{e.preventDefault();const next={};for(const [k,v] of new FormData(e.target))next[k]=Number(v);try{localStorage.setItem('evelo-demo-defaults',JSON.stringify(next));defaults=next;$('defaults-dialog').close();toast('Defaults saved. They will apply to new estimates.')}catch{toast('Defaults could not be saved in this browser.')}};
 let notesWereOpen=false;
-window.addEventListener('beforeprint',()=>{notesWereOpen=document.querySelector('details').open;document.querySelector('details').open=true;$('print-meta').textContent='Property: '+(state.address||'Not entered')+'  |  Prepared by: '+state.agent+'  |  Date: '+state.date});
+window.addEventListener('beforeprint',()=>{notesWereOpen=document.querySelector('details').open;document.querySelector('details').open=true;$('print-meta').innerHTML='<span><b>Property:</b> '+esc(state.address||'Not entered')+'</span><span><b>Prepared by:</b> '+esc(state.agent)+'</span><span><b>Date:</b> '+esc(state.date)+'</span>'});
 window.addEventListener('afterprint',()=>{document.querySelector('details').open=notesWereOpen});
 $('print').onclick=()=>{if(!valid())return toast('Enter valid amounts before printing.');window.print()};
 document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>$(b.dataset.close).close());window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue=''}});render();
